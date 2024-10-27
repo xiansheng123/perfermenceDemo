@@ -26,7 +26,7 @@ public class Controller1 {
 
     @PostMapping("/send")
     public String sendMessageToKafka(@RequestParam String topic, @RequestBody Object message) throws ExecutionException, InterruptedException {
-        kafkaSender.sendMessage(topic, message);
+        kafkaSender.sendMessage1(topic, message);
         return "Message sent to Kafka topic: " + topic;
     }
 }

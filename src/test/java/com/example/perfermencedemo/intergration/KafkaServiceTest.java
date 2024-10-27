@@ -2,7 +2,6 @@ package com.example.perfermencedemo.intergration;
 
 import com.example.perfermencedemo.kafka.KafkaConsumer;
 import com.example.perfermencedemo.kafka.KafkaSender;
-import org.apache.kafka.clients.producer.KafkaProducer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,8 +11,6 @@ import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
@@ -31,17 +28,17 @@ class KafkaServiceTest {
     private String topic;
 
     @Test
-    public void givenEmbeddedKafkaBroker_whenSendingWithSimpleProducer_thenMessageReceived()
+    public void givenEmbeddedKafkaBroker()
             throws Exception {
         String data = "Sending with our own simple KafkaProducer";
 
-        producer.sendMessage(topic, data);
-        producer.sendMessage(topic, data+"1");
-        producer.sendMessage(topic, data+"2");
-        producer.sendMessage(topic, data+"3");
 
+       // producer.sendMessage1(topic, data+"1");
+        producer.sendMessage2(topic, data+"2");
+        System.out.println("send123455!!");
         boolean messageConsumed = consumer.latch.await(10, TimeUnit.SECONDS);
         assertTrue(messageConsumed);
 
+        Thread.sleep(1000*20);
     }
 }
