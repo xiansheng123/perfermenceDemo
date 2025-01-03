@@ -13,7 +13,7 @@ public class KafkaConsumer {
     public CountDownLatch latch = new CountDownLatch(1);
     public String payload;
 
-    @KafkaListener(topics = "${test.topic}")
+  //  @KafkaListener(topics = "${test.topic}")
     public void receive(ConsumerRecord<?, ?> consumerRecord) {
         log.info("received payload='{}'", consumerRecord.toString());
         payload = consumerRecord.toString();
