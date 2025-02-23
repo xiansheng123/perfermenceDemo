@@ -13,14 +13,14 @@ import java.util.concurrent.ExecutionException;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-public class Controller1 {
+public class KafkaController1 {
     private final DemoService demoService;
     private final KafkaSender kafkaSender;
 
     @GetMapping("demo")
     public String demo() throws InterruptedException {
         Thread.sleep(2000);
-        log.info("current thread {} {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+        log.info("current thread {} {}", Thread.currentThread().threadId(), Thread.currentThread().getName());
         return demoService.getStr1();
     }
 

@@ -3,9 +3,11 @@ package com.example.perfermencedemo.services;
 
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class SubService {
-    public String getSubStr() {
-        return "sub44";
+    public String getDateStr() {
+        return LocalDateTime.now().toString();
     }
 }
