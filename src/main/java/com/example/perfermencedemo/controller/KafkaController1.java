@@ -1,4 +1,4 @@
-package com.example.perfermencedemo;
+package com.example.perfermencedemo.controller;
 
 
 import com.example.perfermencedemo.kafka.KafkaSender;
